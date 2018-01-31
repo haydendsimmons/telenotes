@@ -1,0 +1,80 @@
+<div class="row form-group">
+  <div class="col-md-9">
+    <h4>Contacts</h4>
+  </div>
+  <div class="col-md-3 text-right">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Add Contact
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>Company ID</div>
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>Account ID</div>
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>Company name</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>City</div>
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>Street address</div>
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>Street address (contd)</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>State</div>
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>Country</div>
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>ZIP code</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4"><input id="" clas="" type="text"/>Web site</div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-success" [disabled]="!userAddForm.valid">Add User</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  
+</div>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <tr class="default">
+      <th class="text-center" style="vertical-align: middle">Company ID
+      </th>
+      <th class="text-center" style="vertical-align: middle">Account ID
+      </th>
+      <th class="text-center" style="vertical-align: middle">Company Name
+      </th>
+      <th class="text-center" style="vertical-align: middle">Street Address
+      </th>
+      <th class="text-center" style="vertical-align: middle">Update
+      </th>
+      <th class="text-center" style="vertical-align: middle">Delete
+      </th>
+      
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{user.CompanyID}}</td>
+      <td>{{user.AccountId}}</td>
+      <td>{{user.CompanyName}}</td>
+      <td>{{user.StreetAddress}}</td>
+      <td class="text-center">
+        <button type="button" class="btn btn-block btn-default btn-xs" (click)="update(user.CompanyID)"><i class="fa fa-edit" aria-hidden="true"></i></button>
+      </td>
+      <td class="text-center">
+        <button type="button" (click)="remove(user.CompanyID)" class="btn btn-danger btn-block btn-xs"><i class="fa fa-close" aria-hidden="true"></i></button>
+      </td>
+    </tr>
+  </table>
+</div>
