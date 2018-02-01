@@ -23,6 +23,19 @@ export class UserService {
   }
 
   /**
+   * Returns user based on id
+   * @param id:string
+   * @returns {Promise<User>}
+   */
+  getUser(id: string): Promise<User> {
+    const url = `${this.usersURL}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as User)
+      .catch(this.handleError);
+  }
+
+  /**
    * Adds new user
    * @param user:User
    * @returns {Promise<User>}

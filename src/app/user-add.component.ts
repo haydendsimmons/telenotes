@@ -38,6 +38,8 @@ export class UserAddComponent {
     });
   }
 
+  
+
   add(): void {
     let user = this.userAddForm.value as User;
     this.userService.add(user)
